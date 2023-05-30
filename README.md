@@ -2,7 +2,7 @@
 一个轻量化的博客应用
 
 ## 简介:
-关于lite-blog则字面意思**轻量化的博客**，目的就是打造一个很轻量化的博客应用。其实市面上有很多成熟的博客应用了，但是对于个人来讲写笔记什么的只用markdown，很多功能用不上显的些许臃肿。于是便有了该项目计划，主打一个**轻量**方便服务器到期迁移。也当做学习！
+关于lite-blog则字面意思**轻量化的博客**，目的就是打造一个很轻量化的博客应用。其实市面上有很多成熟的博客应用了，但是对于个人来讲写笔记什么的只用markdown，很多功能用不上显的些许臃肿。于是便有了该项目计划，主打一个**轻量**方便服务器到期迁移。主要当做学习！
 
 
 
@@ -16,23 +16,33 @@
 python=3.10.10
 ```
 // 目前其他依赖版本,用idea一键构建导入的依赖.使用的venv虚拟环境
-anyio==3.7.0
-click==8.1.3
-exceptiongroup==1.1.1
-fastapi==0.95.2
-h11==0.14.0
-httptools==0.5.0
-idna==3.4
-pydantic==1.10.8
-python-dotenv==1.0.0
-PyYAML==6.0
-sniffio==1.3.0
-starlette==0.27.0
-typing_extensions==4.6.2
-uvicorn==0.22.0
-uvloop==0.17.0
-watchfiles==0.19.0
-websockets==11.0.3
+anyio             3.7.0
+click             8.1.3
+exceptiongroup    1.1.1
+fastapi           0.95.2
+h11               0.14.0
+httptools         0.5.0
+idna              3.4
+pip               22.3.1
+pydantic          1.10.8
+python-dotenv     1.0.0
+PyYAML            6.0
+setuptools        65.5.1
+sniffio           1.3.0
+SQLAlchemy        2.0.15
+starlette         0.27.0
+typing_extensions 4.6.2
+uvicorn           0.22.0
+uvloop            0.17.0
+watchfiles        0.19.0
+websockets        11.0.3
+wheel             0.38.4
+
+```
+
+```
+pip install sqlalchemy
+pip install fastapi-utils
 
 ```
 

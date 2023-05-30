@@ -9,6 +9,9 @@ from fastapi import FastAPI
 # 引入所有接口层
 from controller import testController, userController
 
+from dao import engine
+from entity import Base
+
 app = FastAPI(
     # 创建一个FastAPI实例
     # 这里的变量 app 会是 FastAPI 类的一个「实例」。
@@ -30,9 +33,13 @@ app.include_router(userController, prefix='/user')
 
 # 如果该模块作为主程序执行
 if __name__ == '__main__':
+    # 创建数据库表
+    Base.metadata.create_all(bind=engine)
     # 设置服务器参数
     # uvicorn等同于java中的tomcat
     uvicorn.run(app, host="127.0.0.1", port=8080)
+
+
 
 # @app.get("/")
 # async def root():
