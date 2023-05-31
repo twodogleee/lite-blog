@@ -12,6 +12,7 @@ from controller import testController, userController
 from dao import engine
 from entity import Base
 
+
 app = FastAPI(
     # 创建一个FastAPI实例
     # 这里的变量 app 会是 FastAPI 类的一个「实例」。
@@ -38,8 +39,6 @@ if __name__ == '__main__':
     # 设置服务器参数
     # uvicorn等同于java中的tomcat
     uvicorn.run(app, host="127.0.0.1", port=8080)
-
-
 
 # @app.get("/")
 # async def root():

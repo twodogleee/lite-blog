@@ -34,3 +34,8 @@ class User(BaseModel):
 
     class Config:
         orm_mode = True
+
+
+class UpdateUser(User):
+    # 旧密码
+    oldPassword: Optional[str] = None

@@ -1,4 +1,4 @@
-from entity.UserEntity import User
+from entity.UserEntity import User,UpdateUser
 from fastapi_utils.inferring_router import InferringRouter
 from service import UserService as userService
 
@@ -9,6 +9,11 @@ userController = InferringRouter()
 @userController.post('/login')
 async def userLogin(user: User):
     return userService.login(user)
+
+
+@userController.post('/updatePassword')
+async def userLogin(user: UpdateUser):
+    return userService.updatePassword(user)
 
 
 @userController.get('/getUserById/v1/{userId}')
