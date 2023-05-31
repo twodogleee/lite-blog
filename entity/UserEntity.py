@@ -10,7 +10,7 @@ user实体类
 
 
 # user的数据库对象 sqlalchemy模型
-class UserOrm(Base):
+class DbUser(Base):
     __tablename__ = 'tb_user'
     # userId
     id = Column(String, primary_key=True)
