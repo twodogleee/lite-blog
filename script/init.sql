@@ -1,0 +1,1 @@
+insert into tb_user values ('123456','admin','21232F297A57A5A743894A0E4A801FC3','')
