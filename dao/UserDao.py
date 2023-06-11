@@ -26,8 +26,8 @@ def getUserByUserName(userName: str):
 def createUser(user: DbUser):
     with SessionLocal() as db:
         result = db.add(user)
-        db.commit()
-        return result.rowcount != 0
+        flag = db.commit()
+        return flag is None
 
 
 # 根据用户名修改密码

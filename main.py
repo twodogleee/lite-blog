@@ -3,7 +3,8 @@
 """
 
 import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, Request, HTTPException
+from fastapi.responses import JSONResponse
 # from fastapi.staticfiles import StaticFiles
 
 # 引入所有接口层
@@ -12,6 +13,12 @@ from controller import testController, userController
 from dao import engine
 from entity import Base
 
+import service.BasicService as basicService
+
+import re
+
+# 地址匹配 用来匹配请求地址是否需要登录
+auth_url = r"(/admin)"
 
 app = FastAPI(
     # 创建一个FastAPI实例
@@ -31,6 +38,32 @@ app = FastAPI(
 # 等同于java中的springMvc 将接口注册到服务器中进行路由
 app.include_router(testController, prefix='/test', tags=['test'])
 app.include_router(userController, prefix='/user')
+
+
+# 请求拦截
+@app.middleware("http")
+async def auth_middleware(request: Request, call_next):
+    # 请求地址
+    print(f"Request {request.method} {request.url}")
+    # 判断请求地址中是否有需要登录才能访问的地址
+    match = re.search(auth_url, request.url.path)
+    # 如果需要认证
+    if match:
+        # 获取请求头中的token
+        token = request.headers.get('token')
+        # 判断token是否合法
+        if basicService.check_token(token):
+            return JSONResponse(
+                status_code=401,
+                content={'status': 401, 'msg': '非法操作，请登录后操作'}
+            )
+            # raise HTTPException(status_code=401, detail='非法操作，请登录后操作')
+
+    # print(request.headers.get('token'))
+    # 调用下一个中间件或路由处理程序
+    response = await call_next(request)
+    return response
+
 
 # 如果该模块作为主程序执行
 if __name__ == '__main__':

@@ -13,7 +13,7 @@ async def userLogin(user: User):
 
 
 # 修改初始密码
-@userController.post('/updatePassword')
+@userController.post('/admin/updatePassword')
 async def updatePassword(user: UpdateUser):
     return userService.updatePassword(user)
 
