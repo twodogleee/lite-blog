@@ -8,7 +8,7 @@ from fastapi.responses import JSONResponse
 # from fastapi.staticfiles import StaticFiles
 
 # 引入所有接口层
-from controller import testController, userController
+from controller import testController, userController, menuController
 
 from dao import engine
 from entity import Base
@@ -36,8 +36,9 @@ app = FastAPI(
 
 # 将所有接口层加入路由
 # 等同于java中的springMvc 将接口注册到服务器中进行路由
-app.include_router(testController, prefix='/test', tags=['test'])
-app.include_router(userController, prefix='/user')
+app.include_router(testController, prefix='/test', tags=['测试'])
+app.include_router(userController, prefix='/user', tags=['用户相关接口'])
+app.include_router(menuController, prefix='/menu', tags=['菜单栏相关接口'])
 
 
 # 请求拦截

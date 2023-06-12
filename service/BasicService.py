@@ -11,6 +11,8 @@ def fail(msg: str):
     return {'status': 500, 'msg': msg}
 
 
+
+
 def to_result(data):
     if (data):
         return success(data)

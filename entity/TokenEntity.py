@@ -9,7 +9,7 @@ token
 """
 
 
-# user的数据库对象 sqlalchemy模型
+# token的数据库对象 sqlalchemy模型
 class DbToken(Base):
     __tablename__ = 'tb_token'
     # userId
@@ -20,7 +20,7 @@ class DbToken(Base):
     expires_time = Column(BigInteger())
 
 
-# user的pydantic对象 pydantic模型
+# token的pydantic对象 pydantic模型
 class Token(BaseModel):
     # 用户id
     user_id: str
