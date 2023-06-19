@@ -38,12 +38,15 @@ uvloop            0.17.0
 watchfiles        0.19.0
 websockets        11.0.3
 wheel             0.38.4
+installed python-multipart-0.0.6
+
 
 ```
 
 ```
 pip install sqlalchemy
 pip install fastapi-utils
+pip install python-multipart
 
 ```
 

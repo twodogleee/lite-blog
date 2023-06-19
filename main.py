@@ -4,11 +4,12 @@
 
 import uvicorn
 from fastapi import FastAPI, Request, HTTPException
+from fastapi.staticfiles import StaticFiles
 from fastapi.responses import JSONResponse
 # from fastapi.staticfiles import StaticFiles
 
 # 引入所有接口层
-from controller import testController, userController, menuController
+from controller import testController, userController, menuController, contentController
 
 from dao import engine
 from entity import Base
@@ -16,6 +17,7 @@ from entity import Base
 import service.BasicService as basicService
 
 import re
+from config import FILE_PATH
 
 # 地址匹配 用来匹配请求地址是否需要登录
 auth_url = r"(/admin)"
@@ -39,6 +41,8 @@ app = FastAPI(
 app.include_router(testController, prefix='/test', tags=['测试'])
 app.include_router(userController, prefix='/user', tags=['用户相关接口'])
 app.include_router(menuController, prefix='/menu', tags=['菜单栏相关接口'])
+app.include_router(contentController, prefix='/content', tags=['文章相关接口'])
+app.mount("/file", StaticFiles(directory=FILE_PATH), name="file")
 
 
 # 请求拦截

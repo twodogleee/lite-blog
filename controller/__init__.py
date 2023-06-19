@@ -2,3 +2,4 @@
 from .TestController import testController
 from .UserController import userController
 from .MenuController import menuController
+from .ContentController import contentController

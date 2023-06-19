@@ -38,8 +38,9 @@ def update_menu(menu: DbMenu):
     sup_id: int
 
         '''
-        sql = text('UPDATE tb_menu SET title=:title,content=:content,sup_id=:sup_id WHERE id=:id')
-        params = {'title': menu.title, 'content': menu.content, 'sup_id': menu.sup_id, 'id': menu.id}
+        sql = text('UPDATE tb_menu SET title=:title,content=:content,sup_id=:sup_id,level=:level  WHERE id=:id')
+        params = {'title': menu.title, 'content': menu.content, 'sup_id': menu.sup_id, 'level': menu.level,
+                  'id': menu.id}
         result = db.execute(sql, params)
         db.commit()
     return result.rowcount != 0

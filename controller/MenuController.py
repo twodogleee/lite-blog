@@ -7,9 +7,14 @@ menuController = InferringRouter()
 
 
 # 新增菜单
-@menuController.post('/add')
+@menuController.post('/admin/save')
 async def add_menu(menu: Menu):
     return menuService.save_menu(menu)
+
+
+@menuController.post('/admin/update')
+async def update_menu(menu: Menu):
+    return menuService.update_menu(menu)
 
 
 # 根据id查询菜单信息
@@ -19,7 +24,7 @@ async def get_menu_by_id(id: int):
 
 
 # 删除菜单
-@menuController.post('/delMenu/{id}')
+@menuController.post('/admin/delMenu/{id}')
 async def del_menu(id: int):
     return menuService.del_menu(id)
 
@@ -27,3 +32,8 @@ async def del_menu(id: int):
 @menuController.get('/getMenuList')
 async def get_menu_list():
     return menuService.get_menu_list()
+
+
+@menuController.get("/getMenuTree")
+async def get_menu_tree():
+    return menuService.get_menu_tree()

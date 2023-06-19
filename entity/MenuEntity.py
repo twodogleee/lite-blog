@@ -41,6 +41,10 @@ class Menu(BaseModel):
         orm_mode = True
 
 
-class MenuVo(BaseModel):
-    # 菜单下的子集
-    children: List[Menu]
+class MenuVo:
+    menu: DbMenu
+    children: []
+
+    def __init__(self, menu: DbMenu):
+        self.menu = menu
+        self.children = []
