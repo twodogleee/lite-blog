@@ -6,6 +6,7 @@ import uvicorn
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 # from fastapi.staticfiles import StaticFiles
 
 # 引入所有接口层
@@ -43,6 +44,20 @@ app.include_router(userController, prefix='/user', tags=['用户相关接口'])
 app.include_router(menuController, prefix='/menu', tags=['菜单栏相关接口'])
 app.include_router(contentController, prefix='/content', tags=['文章相关接口'])
 app.mount("/file", StaticFiles(directory=FILE_PATH), name="file")
+
+# 允许跨域访问的来源地址
+origins = [
+    "http://127.0.0.1",
+    "http://127.0.0.1:3000",
+]
+# 添加跨域请求处理
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 # 请求拦截
