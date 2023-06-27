@@ -31,7 +31,7 @@ app = FastAPI(
     title='lite-blog接口文档',
     description='lite-blog是一个轻量化的博客应用',
     version='1.0.0',
-    docs_url='/docs',  # swagger
+    docs_url='/doc',  # swagger
     redoc_url='/reDoc'  # reDoc
 )
 # 静态文件夹配置
