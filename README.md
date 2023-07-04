@@ -14,7 +14,7 @@
 - next.js
 
 ### python环境
-python=3.10.10
+调试环境python=3.10.10
 ```
 // 目前其他依赖版本,用idea一键构建导入的依赖.使用的venv虚拟环境
 anyio             3.7.0
@@ -43,10 +43,10 @@ installed python-multipart-0.0.6
 
 ```
 
-```
-pip install sqlalchemy
-pip install fastapi-utils
-pip install python-multipart
+```shell
+pip install -r requirements.txt
+#加速镜像安装
+pip install --no-cache-dir -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 ```
 
