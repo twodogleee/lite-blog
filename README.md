@@ -48,6 +48,12 @@ pip install -r requirements.txt
 #加速镜像安装
 pip install --no-cache-dir -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
+#docker 运行
+docker build -t lite-blog:lates .
+docker run -d -p 8080:8080 lite-blog:lates
+#挂载数据目录
+docker run -d -p 8080:8080 -v /path/db:/data/db -v /path/file:/data/file lite-blog:lates
+
 ```
 
 ## 核心功能:
@@ -67,7 +73,6 @@ pip install --no-cache-dir -r requirements.txt -i https://pypi.tuna.tsinghua.edu
 4. 支持简单的后管登录(不做权限管理)
 5. 支持文章分类管理
 6. 支持将文章放到指定分类中
-7. 支持docker部署
 
 ## 可能会有:
 1. 看板娘
