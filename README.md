@@ -28,6 +28,8 @@ docker run -d -p 8080:8080 lite-blog:lates
 #挂载数据目录
 docker run -d -p 8080:8080 -v /path/db:/data/db -v /path/file:/data/file lite-blog:lates
 
+#访问
+http://IP:8080
 ```
 
 ## 核心功能:
