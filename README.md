@@ -15,35 +15,9 @@
 
 ### python环境
 调试环境python=3.10.10
-```
-// 目前其他依赖版本,用idea一键构建导入的依赖.使用的venv虚拟环境
-anyio             3.7.0
-click             8.1.3
-exceptiongroup    1.1.1
-fastapi           0.95.2
-h11               0.14.0
-httptools         0.5.0
-idna              3.4
-pip               22.3.1
-pydantic          1.10.8
-python-dotenv     1.0.0
-PyYAML            6.0
-setuptools        65.5.1
-sniffio           1.3.0
-SQLAlchemy        2.0.15
-starlette         0.27.0
-typing_extensions 4.6.2
-uvicorn           0.22.0
-uvloop            0.17.0
-watchfiles        0.19.0
-websockets        11.0.3
-wheel             0.38.4
-installed python-multipart-0.0.6
-
-
-```
 
 ```shell
+#依赖
 pip install -r requirements.txt
 #加速镜像安装
 pip install --no-cache-dir -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
